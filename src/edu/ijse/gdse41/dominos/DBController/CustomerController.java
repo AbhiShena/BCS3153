@@ -20,20 +20,7 @@ import java.util.ArrayList;
  *
  * @author SHEHANKA
  */
-public class CustomerController {
-    public static int addCustomer(Customer customer) throws ClassNotFoundException, SQLException {
-        String sql = "Insert into Customer values(?,?,?,?,?)";
-        Connection conn = DBConnection.getDBConnection().getConnection();
-        PreparedStatement stm = conn.prepareStatement(sql);
-        stm.setObject(1, customer.getCustomer_Id());
-        stm.setObject(2, customer.getCustomer_Name());
-        stm.setObject(3, customer.getCustomer_TpNo());
-        stm.setObject(4, customer.getCustomer_Address());
-        stm.setObject(5, customer.getCustomer_Email());
-        
-        return  stm.executeUpdate();
-        
-    }
+
     public static Customer searchCustomer(String customer_Id) throws ClassNotFoundException, SQLException {
         String sql = "SELECT * FROM Customer WHERE CID = ? ";
         Connection conn = DBConnection.getDBConnection().getConnection();
